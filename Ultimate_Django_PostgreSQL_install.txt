@@ -1,0 +1,67 @@
+hermelen@hermelen-hp-i5:~/Folder/Parent$ mkdir nom_du_projet
+
+hermelen@hermelen-hp-i5:~/Folder/Parent$ mkvirtualenv nom_du_projet -a nom_du_projet
+
+(nom_du_projet) hermelen@hermelen-hp-i5:~/Folder/Parent/nom_du_projet$ pip install django
+
+(nom_du_projet) hermelen@hermelen-hp-i5:~/Folder/Parent$ django-admin startproject nom_du_projet path/du/projet
+
+(nom_du_projet) hermelen@hermelen-hp-i5:~/Folder/Parent$ django-admin startproject nom_du_projet path/du/projet
+
+(nom_du_projet) hermelen@hermelen-MSI-i5:~/Folder/Parent/nom_du_projet$ git init
+
+(nom_du_projet) hermelen@hermelen-MSI-i5:~/Folder/Parent/nom_du_projet$ npm init
+
+(nom_du_projet) hermelen@hermelen-MSI-i5:~/Folder/Parent/nom_du_projet$ touch requirements.txt
+
+(nom_du_projet) hermelen@hermelen-MSI-i5:~/Folder/Parent/nom_du_projet$ sudo su - postgres
+postgres@hermelen-MSI-i5:~$ createuser -P -s -e nom_du_user
+
+postgres@hermelen-MSI-i5:~$ createdb -E UTF-8 -O nom_de_la_db -e nom_du_user (ou l'inverse je ne sais pas)
+
+postgres@hermelen-MSI-i5:~$ psql --user=nom_du_user nom_de_la_db (ou l'inverse je ne sais pas)
+
+nom_de_la_db=# create extension postgis;  (ou nom_du_user je ne sais pas)
+
+nom_de_la_db=# 
+
+Dans le dossier settings.py de l'appli, remplacer:
+DATABASES = {
+    'default': {
+        bla bla bla ...
+    }
+}
+
+par
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'NAME': 'nom_de_la_db',
+        'USER': 'nom_du_user',
+        'PASSWORD': 'password_saisi_plus_haut',
+    }
+}
+
+Ctrl+d et Ctrl+d pour revenir au workon
+
+(nom_du_projet) hermelen@hermelen-MSI-i5:~/Folder/Parent/nom_du_projet$ pip install psycopg2
+
+(nom_du_projet) hermelen@hermelen-MSI-i5:~/Folder/Parent/nom_du_projet$ ./manage.py migrate
+
+(nom_du_projet) hermelen@hermelen-MSI-i5:~/Folder/Parent/nom_du_projet$ ./manage.py createsuperuser
+
+(nom_du_projet) hermelen@hermelen-MSI-i5:~/Folder/Parent/nom_du_projet$ ./manage.py startapp nom_de_la_nouvelle_app
+
+(nom_du_projet) hermelen@hermelen-MSI-i5:~/Folder/Parent/nom_du_projet$ ./manage.py runserver
+
+Let's work dirty old shit!
+
+
+
+
+
+
+
+
+

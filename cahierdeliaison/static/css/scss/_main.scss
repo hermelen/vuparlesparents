@@ -1,0 +1,64 @@
+body {
+  margin: 0;
+}
+main#cuboid {
+  position: relative;
+	transform-style: preserve-3d;
+  // height: 500px;
+  div#toLeft {
+    position: fixed;
+    top: 10em;
+    left: 30px;
+    background-color: white;
+    border-radius: 50%;
+    width: 2em;
+    height: 2em;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateZ(250px);
+    i {
+    }
+  }
+  section {
+    position: absolute;
+    width: 100%;
+    height: 500px;
+    text-align: center;
+    transition-duration: 0.5s;
+    h2 {
+      color: white;
+    }
+  }
+  section#cuboidLeft {
+    background-color: $rgba-primary-1;
+  }
+  section#cuboidFront {
+    background-color: $rgba-primary-2;
+  }
+  section#cuboidRight {
+    background-color: $rgba-primary-3;
+  }
+  section#cuboidBack {
+    background-color: $rgba-primary-4;
+  }
+  div#toRight {
+    position: fixed;
+    top: 10em;
+    right: 30px;
+    background-color: white;
+    border-radius: 50%;
+    width: 2em;
+    height: 2em;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateZ(250px);
+    i {
+    }
+  }
+}
+
+// https://codepen.io/ugncry/pen/WggXpw?page=2

@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+  </head>
+  <body>
+  {% include "cahierdeliaison/navbar.html" %}
+    <div id="area">
+      <main id="cuboid">
+        <div id="toLeft">
+          <i class="fas fa-chevron-left"></i>
+        </div>
+        <section id="cuboidLeft" class="cuboid-section">
+          {% block left %}
+          {% endblock %}
+        </section>
+        <section id="cuboidFront" class="cuboid-section">
+          {% block content %}
+          {% endblock %}
+        </section>
+        <section id="cuboidRight" class="cuboid-section">
+          {% block right %}
+          {% endblock %}
+        </section>
+        <section id="cuboidBack" class="cuboid-section">
+          {% block back %}
+          {% endblock %}
+        </section>
+        <div id="toRight">
+          <i class="fas fa-chevron-right"></i>
+        </div>
+      </main>
+    </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+          crossorigin="anonymous"></script>
+  <script src="{% static 'js/script.js' %}"></script>
+</body>
