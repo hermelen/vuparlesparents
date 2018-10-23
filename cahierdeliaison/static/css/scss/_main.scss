@@ -1,64 +1,119 @@
-body {
-  margin: 0;
-}
-main#cuboid {
-  position: relative;
-	transform-style: preserve-3d;
-  // height: 500px;
-  div#toLeft {
-    position: fixed;
-    top: 10em;
-    left: 30px;
-    background-color: white;
-    border-radius: 50%;
-    width: 2em;
-    height: 2em;
-    z-index: 5;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transform: translateZ(250px);
-    i {
-    }
-  }
-  section {
-    position: absolute;
-    width: 100%;
-    height: 500px;
-    text-align: center;
-    transition-duration: 0.5s;
-    h2 {
-      color: white;
-    }
-  }
-  section#cuboidLeft {
-    background-color: $rgba-primary-1;
-  }
-  section#cuboidFront {
-    background-color: $rgba-primary-2;
-  }
-  section#cuboidRight {
-    background-color: $rgba-primary-3;
-  }
-  section#cuboidBack {
-    background-color: $rgba-primary-4;
-  }
-  div#toRight {
-    position: fixed;
-    top: 10em;
-    right: 30px;
-    background-color: white;
-    border-radius: 50%;
-    width: 2em;
-    height: 2em;
-    z-index: 5;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transform: translateZ(250px);
-    i {
-    }
-  }
-}
 
-// https://codepen.io/ugncry/pen/WggXpw?page=2
+.main-cube-div {
+    width: 100%;
+		margin: 50px auto;
+    .main-cube-container {
+      position: relative;
+      margin: 100px auto;
+      perspective: 1100px;
+      perspective-origin: -80% -90%;
+      float: left;
+      .main-cube {
+        -webkit-transform-style: preserve-3d;
+        -webkit-transform: translateZ(-150px);
+        left: 15%;
+        position: relative;
+        margin-top: -10%;
+        -webkit-transform: rotateY(0);
+        transition-duration: 1s;
+        div.main-face {
+          height: 500px;
+          transition: background-color 1s ease-in;
+          position: absolute;
+          text-align: center;
+          padding: 2% 5%;
+          color: #fff;
+          // border: 1px solid #fff;
+        }
+        div.on-front {
+          // background-color: $rgba-primary-3;
+          background-color: yellow;
+        }
+        div.on-back {
+          // background-color: $rgba-primary-1;
+          background-color: grey;
+        }
+        div.on-right {
+          // background-color: $rgba-primary-2;
+          background-color: blue;
+        }
+        div.on-left {
+          // background-color: $rgba-primary-0;
+          background-color: pink;
+        }
+        div.direction {
+          position: fixed;
+          top: 23px;
+        }
+      }
+      div.direction {
+        position: fixed;
+      }
+      div#toLeft {
+        left: 30px;
+        align-items: center;
+      }
+      div#toRight {
+        right: 30px;
+        align-items: center;
+      }
+    }
+	}
+
+
+// .cube-title{
+//   position: relative;
+//   width: 50px;
+//   transform-style: preserve-3d;
+//   margin-bottom: 25px;
+//   .cube-title-front, .cube-title-back{
+//     position: absolute;
+//     background-color: grey;
+//     padding: 1px;
+//     text-align: center;
+//     img{
+//       width: 100%;
+//       vertical-align: super;
+//     }
+//   }
+//   .cube-title-front{
+//     transform: rotateY(-45deg) translateZ(0px);
+//   }
+//   .cube-title-back{
+//     transform: rotateY(135deg) translateZ(-0px);
+//   }
+// }
+
+// @keyframes spin {
+//   from { transform: rotateY(0); }
+//   to { transform: rotateY(360deg); }
+// }
+//
+// .box-faces, .cube-title{
+//   animation: spin 12s infinite linear;
+// }
+
+// @keyframes sha {
+//   0% {background-color: rgba(255, 255, 255, 0);}
+//   50% {background-color: rgba(0, 0, 0, 0.70);}
+//   100% {background-color: rgba(255, 255, 255, 0);}
+// }
+// @keyframes dow {
+//   0% {background-color: rgba(0, 0, 0, 0.70);}
+//   50% {background-color: rgba(255, 255, 255, 0);}
+//   100% {background-color: rgba(0, 0, 0, 0.70);}
+// }
+//
+// .shadow{
+//   position: absolute;
+//   height: 100px;
+//   width: 50px;
+// }
+// .shadow-front, .shadow-back{
+//   top: 0px;
+//   animation: sha 6s infinite linear;
+// }
+// .shadow-left, .shadow-right{
+//   top: 0px;
+//   animation: dow 6s infinite linear;
+// }

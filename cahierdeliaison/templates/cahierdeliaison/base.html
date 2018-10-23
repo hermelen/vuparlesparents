@@ -11,31 +11,35 @@
   {% include "cahierdeliaison/navbar.html" %}
     <div id="area">
       <main id="cuboid">
-        <div id="toLeft">
-          <i class="fas fa-chevron-left"></i>
-        </div>
-        <section id="cuboidLeft" class="cuboid-section">
-          {% block left %}
-          {% endblock %}
-        </section>
-        <section id="cuboidFront" class="cuboid-section">
-          {% block content %}
-          {% endblock %}
-        </section>
-        <section id="cuboidRight" class="cuboid-section">
-          {% block right %}
-          {% endblock %}
-        </section>
-        <section id="cuboidBack" class="cuboid-section">
-          {% block back %}
-          {% endblock %}
-        </section>
-        <div id="toRight">
-          <i class="fas fa-chevron-right"></i>
-        </div>
       </main>
     </div>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-          crossorigin="anonymous"></script>
+    <div class = "main-cube-div">
+		<div class="main-cube-container">
+      <div id="toLeft" class="direction">
+        <i class="fas fa-chevron-left"></i>
+      </div>
+			<figure class="main-cube">
+				<div class="main-face main-front cursor_front on-front">
+          {% block content %}
+          {% endblock %}
+        </div>
+				<div class="main-face main-left cursor_left on-left">
+          {% block left %}
+          {% endblock %}
+        </div>
+				<div class="main-face main-right cursor_right on-right">
+          {% block right %}
+          {% endblock %}
+        </div>
+				<div class="main-face main-back cursor_back on-back">
+          {% block back %}
+          {% endblock %}
+        </div>
+			</figure>
+      <div id="toRight" class="direction">
+        <i class="fas fa-chevron-right"></i>
+      </div>
+		</div>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="{% static 'js/script.js' %}"></script>
 </body>
