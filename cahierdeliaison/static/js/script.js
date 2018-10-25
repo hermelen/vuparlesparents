@@ -16,25 +16,33 @@ $(document).ready(function(){
     translateZ = "translateZ("+mainCubeContainerWidth/2+"px)";
     $(".main-cube")
     .css("width", mainCubeContainerWidth)
-    .css("height", mainCubeContainerWidth)
+    // .css("height", mainCubeContainerWidth)
     $(".main-cube-container")
     .css("width", mainCubeContainerWidth)
-    .css("height", mainCubeContainerWidth)
+    // .css("height", mainCubeContainerWidth)
     .css("-webkit-perspective", mainCubeContainerWidth*2.33)
     $(".main-face")
     .css("width", mainCubeContainerWidth)
-    .css("height", mainCubeContainerWidth)
-    $(".main-front").css("transform", translateZ)
-    $(".main-right").css("transform", "rotateY(90deg) " + translateZ)
-    $(".main-back").css("transform", "rotateY(180deg) " + translateZ)
-    $(".main-left").css("transform", "rotateY(-90deg) " + translateZ)
+    // .css("height", mainCubeContainerWidth)
+    $(".main-front").css({
+      'transform': translateZ
+    });
+    $(".main-right").css({
+      'transform': "rotateY(90deg) " + translateZ
+    });
+    $(".main-back").css({
+      'transform': "rotateY(180deg) " + translateZ
+    });
+    $(".main-left").css({
+      'transform': "rotateY(-90deg) " + translateZ
+    });
   }
   widthFunction();
 
   var cssPosition = [
     "on-front",
-    "on-back",
     "on-left",
+    "on-back",
     "on-right"
   ]
 
@@ -47,20 +55,28 @@ $(document).ready(function(){
   $('#toRight').on('click', function(){
     deg +=90;
     cssPos -= 1;
-    console.log("--------------------------------");
+    console.log("----------------"+cssPos+"----------------");
   })
 
   $('.direction').on('click',function(){
     $(".main-cube").css("transform","rotateY("+deg+"deg)");
     $(".main-face").removeClass("on-front on-back on-left on-right on-top on-bottom");
-    $(".cursor_front").addClass(cssPosition[cssPos%4]);
-    console.log(cssPos%4);
-    $(".cursor_back").addClass(cssPosition[(cssPos+3)%4]);
-    console.log((cssPos+1)%4);
-    $(".cursor_left").addClass(cssPosition[(cssPos+1)%4]);
-    console.log((cssPos+2)%4);
-    $(".cursor_right").addClass(cssPosition[(cssPos+2)%4]);
-    console.log((cssPos+3)%4);
+
+    colorFront = cssPosition[cssPos%4];
+    console.log('front: '+colorFront);
+    $(".cursor_front").addClass(colorFront); // 3  1
+
+    colorLeft = cssPosition[(cssPos+1)%4]
+    console.log('left: '+colorLeft);
+    $(".cursor_left").addClass(colorLeft);   // 0  2
+
+    colorBack = cssPosition[(cssPos-1)%4];
+    console.log('back :'+colorBack);
+    $(".cursor_back").addClass(colorBack);   // 2  0
+
+    colorRight = cssPosition[(cssPos+2)%4]
+    console.log('right: '+colorRight);
+    $(".cursor_right").addClass(colorRight); // 1  3
   })
 
   $('li.front').on('click',function(){
@@ -103,3 +119,33 @@ $(document).ready(function(){
     $(".cursor_right").addClass("on-back");
   })
 });
+
+
+// function widthFunctionJs() {
+//   mainCube = document.getElementsByClassName('main-cube-div')[0];
+//   mainCubeContainerWidth = (mainCube.innerWidth)*0.3;
+//   translateZ = "translateZ("+mainCubeContainerWidth/2+"px)";
+//   mainCube.style.width = mainCubeContainerWidth+'px';
+//   mainCube.style.height = mainCubeContainerWidth+'px';
+//   mainCubeContainer = document.getElementsByClassName('main-cube-container')[0];
+//   mainCubeContainer.style.width  = mainCubeContainerWidth+'px';
+//   mainCubeContainer.style.height = mainCubeContainerWidth+'px';
+//   mainCubeContainer.style.perspective = (mainCubeContainerWidth*2.33)+'px';
+//   mainFaces = document.getElementsByClassName('main-face');
+//   for (mainFace of mainFaces) {
+//     mainFace.style.width = mainCubeContainerWidth+'px';
+//     mainFace.style.height = mainCubeContainerWidth+'px';
+//   }
+//   mainFront = document.getElementsByClassName('main-front')[0];
+//   mainFront.style.transform = translateZ;
+//   mainLeft = document.getElementsByClassName('main-left')[0];
+//   mainLeft.style.transform = translateZ;
+//   mainRight = document.getElementsByClassName('main-right')[0];
+//   mainRight.style.transform = translateZ;
+//   mainBack = document.getElementsByClassName('main-back')[0];
+//   mainBack.style.transform = translateZ;
+// }
+// widthFunctionJs();
+
+// toto = document.getElementsByClassName('main-cube-container')[0];
+// console.log(toto);

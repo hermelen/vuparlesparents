@@ -17,17 +17,20 @@
         -webkit-transform: rotateY(0);
         transition-duration: 1s;
         div.main-face {
-          height: 500px;
+          // height: 500px;
           transition: background-color 1s ease-in;
           position: absolute;
           text-align: center;
-          padding: 2% 5%;
           color: #fff;
           // border: 1px solid #fff;
         }
         div.on-front {
           // background-color: $rgba-primary-3;
           background-color: yellow;
+        }
+        div.on-left {
+          // background-color: $rgba-primary-0;
+          background-color: pink;
         }
         div.on-back {
           // background-color: $rgba-primary-1;
@@ -36,10 +39,6 @@
         div.on-right {
           // background-color: $rgba-primary-2;
           background-color: blue;
-        }
-        div.on-left {
-          // background-color: $rgba-primary-0;
-          background-color: pink;
         }
         div.direction {
           position: fixed;
