@@ -4,42 +4,56 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static '@fortawesome/fontawesome-free/css/all.min.css' %}">
+    <!-- <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/dist/css/bootstrap.min.css' %}"> -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
   </head>
   <body>
   {% include "cahierdeliaison/navbar.html" %}
-    <div id="area">
-      <main id="cuboid">
-      </main>
-    </div>
     <div class = "main-cube-div">
-		<div class="main-cube-container">
-      <div id="toLeft" class="direction">
-        <i class="fas fa-chevron-left"></i>
-      </div>
-			<figure class="main-cube">
-				<div class="main-face main-front cursor_front on-front">
-          {% block content %}
-          {% endblock %}
+	  	<div class="main-cube-container">
+        <div id="toLeft" class="direction">
+          <i class="fas fa-chevron-left"></i>
         </div>
-				<div class="main-face main-left cursor_left on-left">
-          {% block left %}
-          {% endblock %}
+	  		<div class="main-cube">
+	  			<div class="main-face main-front cursor_front on-front">
+            <div class="face-container">
+            {% block content %}
+            {% endblock %}
+            </div>
+            {% include "cahierdeliaison/footer.html" %}
+          </div>
+	  			<div class="main-face main-left cursor_left on-left">
+            <div class="face-container">
+            {% block left %}
+            {% endblock %}
+            </div>
+            {% include "cahierdeliaison/footer.html" %}
+          </div>
+	  			<div class="main-face main-right cursor_right on-right">
+            <div class="face-container">
+            {% block right %}
+            {% endblock %}
+            </div>
+            {% include "cahierdeliaison/footer.html" %}
+
+          </div>
+	  			<div class="main-face main-back cursor_back on-back">
+            <div class="face-container">
+            {% block back %}
+            {% endblock %}
+            </div>
+            {% include "cahierdeliaison/footer.html" %}
+          </div>
+	  		</div>
+        <div id="toRight" class="direction">
+          <i class="fas fa-chevron-right"></i>
         </div>
-				<div class="main-face main-right cursor_right on-right">
-          {% block right %}
-          {% endblock %}
-        </div>
-				<div class="main-face main-back cursor_back on-back">
-          {% block back %}
-          {% endblock %}
-        </div>
-			</figure>
-      <div id="toRight" class="direction">
-        <i class="fas fa-chevron-right"></i>
-      </div>
-		</div>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	  	</div>
+    </div>
+  <script src="{% static '@fortawesome/fontawesome-free/js/all.min.js' %}"></script>
+  <script src="{% static 'jquery/dist/jquery.min.js' %}"></script>
+  <!-- <script src="{% static 'popper.js/dist/popper.min.js' %}"></script> -->
+  <!-- <script src="{% static 'bootstrap/dist/js/bootstrap.min.js' %}"></script> -->
   <script src="{% static 'js/script.js' %}"></script>
 </body>
