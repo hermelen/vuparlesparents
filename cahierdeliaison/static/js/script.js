@@ -7,6 +7,7 @@ for (divDirection of divDirections) {
 
 var mainFaces = document.getElementsByClassName('main-face');
 
+
 $(document).ready(function(){
 
   $('div.direction').css("top", height/2);
@@ -33,6 +34,9 @@ $(document).ready(function(){
     $(".main-bottom").css('transform', "rotateX(90deg)"+ translateZ);
   }
   widthFunction();
+
+  var navWidth = $('.top-menu').width();
+  console.log(navWidth);
 
   var deg = 0;
   var cssPos = 1000;
@@ -71,11 +75,13 @@ $(document).ready(function(){
   })
 
   $('li.top').on('click',function(e){
-    $(".main-cube").css("transform","rotateX(90deg) translateZ(-221px)")
+    // $(".main-cube").css("transform","rotateX(90deg) translateZ(-218px)")
+    $(".main-cube").css("transform","rotateX(90deg) translateZ("+(-navWidth/2)+"px)")
   })
 
   $('li.bottom').on('click',function(e){
-    $(".main-cube").css("transform","rotateX(-90deg) translateZ(221px)")
+    // $(".main-cube").css("transform","rotateX(-90deg) translateZ(218px)")
+    $(".main-cube").css("transform","rotateX(-90deg) translateZ("+(navWidth/2)+"px)")
   })
 
   var faceHeight = 0;
