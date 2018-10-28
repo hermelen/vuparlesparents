@@ -12,6 +12,7 @@ body {
       transform-style: preserve-3d;
       position: relative;
       transform: rotateY(0);
+      transform: rotateX(0);
       transition-duration: 1s;
       div.main-face {
         background-color: $rgba-primary-0;
@@ -47,6 +48,23 @@ body {
       div.on-right {
         div.face-container {
           background-color: $rgba-primary-3;
+        }
+      }
+    }
+    div.secondary-face {
+      background-color: $rgba-primary-3;
+      transition: background-color 1s ease-in;
+      position: absolute;
+      text-align: center;
+      color: #fff;
+      div.on-top {
+        div.face-container {
+          // background-color: $rgba-primary-3;
+        }
+      }
+      div.on-bottom {
+        div.face-container {
+          // background-color: $rgba-primary-3;
         }
       }
     }

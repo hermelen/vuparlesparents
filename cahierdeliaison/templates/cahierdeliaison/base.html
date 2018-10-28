@@ -45,6 +45,18 @@
             </div>
             {% include "cahierdeliaison/footer.html" %}
           </div>
+          <div class="secondary-face main-top cursor_top on-top">
+            <div class="face-container">
+              {% block top %}
+              {% endblock %}
+            </div>
+          </div>
+          <div class="secondary-face main-bottom cursor_bottom on-bottom">
+            <div class="face-container">
+            {% block bottom %}
+            {% endblock %}
+            </div>
+          </div>
 	  		</div>
         <div id="toRight" class="direction">
           <i class="fas fa-chevron-right"></i>
